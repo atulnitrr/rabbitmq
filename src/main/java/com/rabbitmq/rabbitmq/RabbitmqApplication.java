@@ -20,6 +20,6 @@ public class RabbitmqApplication implements CommandLineRunner {
 
 	@Override
 	public void run(final String... args) throws Exception {
-		rabbitTemplate.convertAndSend("TestExchange", "testRouting", "Testing exchnage ");
+		rabbitTemplate.convertAndSend("TestExchange", "testRouting", "Testing exchnage data ");
 	}
 }

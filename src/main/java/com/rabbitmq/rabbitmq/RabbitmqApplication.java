@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.rabbitmq.rabbitmq.model.SimpleMessage;
+
 
 @SpringBootApplication
 public class RabbitmqApplication implements CommandLineRunner {
@@ -20,6 +22,9 @@ public class RabbitmqApplication implements CommandLineRunner {
 
 	@Override
 	public void run(final String... args) throws Exception {
-		rabbitTemplate.convertAndSend("TestExchange", "testRouting", "Testing exchnage data ");
+		final SimpleMessage message = new SimpleMessage();
+		message.setName("first message");
+		message.setDescription("simple description");
+		rabbitTemplate.convertAndSend("TestExchange", "testRouting", message);
 	}
 }

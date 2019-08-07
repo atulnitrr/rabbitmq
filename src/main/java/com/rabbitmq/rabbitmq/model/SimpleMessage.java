@@ -28,4 +28,11 @@ public class SimpleMessage implements Serializable {
     public void setDescription(final String description) {
         this.description = description;
     }
+
+    @Override public String toString() {
+        return "SimpleMessage{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
